@@ -1,7 +1,7 @@
+#include <command_factory.hpp>
+
 #include <iostream>
 #include <algorithm>
-
-#include <command_factory.hpp>
 
 std::shared_ptr<command_t> command_factory_t::get_command(std::istream & input) const
 {
