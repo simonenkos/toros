@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <iostream>
 
-tokenizer_t::tokenizer_t(std::istream & input, char delimiter)
-: input_     { input }
+tokenizer_t::tokenizer_t(std::string const & str, char delimiter)
+: input_     { str }
 , delimiter_ { delimiter }
 { }
 
@@ -39,13 +39,6 @@ std::optional<std::string> tokenizer_t::extract_arguments()
 
     if (std::getline(input_, value, delimiter_))
     {
-        auto it = std::remove_if(value.begin(),
-                                 value.end(),
-                                 [](char ch) { return std::isspace(ch); });
-        if (value.end() != it)
-        {
-            value.erase(it, value.end());
-        }
         return_value = value;
     }
     return return_value;

@@ -2,16 +2,16 @@
 #define TOROS_UTILS_TOKENIZER_HPP
 
 #include <string>
-#include <istream>
+#include <sstream>
 #include <optional>
 
 class tokenizer_t
 {
-    char           delimiter_;
-    std::istream & input_;
+    char               delimiter_;
+    std::istringstream input_;
 
 public:
-    tokenizer_t(std::istream & input, char delimiter);
+    tokenizer_t(std::string const & str, char delimiter);
 
     tokenizer_t(tokenizer_t const &  other) = delete;
     tokenizer_t(tokenizer_t       && other) = delete;

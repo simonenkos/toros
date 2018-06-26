@@ -18,8 +18,15 @@ void place_command_t::apply(std::istream & input, model_t & model) const
         return;
     }
 
-    std::istringstream arguments_stream { arguments };
-    tokenizer_t tokenizer { arguments_stream, ',' };
+    auto it = std::remove_if(arguments.begin(),
+                             arguments.end(),
+                             [](char ch) { return std::isspace(ch); });
+    if (arguments.end() != it)
+    {
+        arguments.erase(it, arguments.end());
+    }
+
+    tokenizer_t tokenizer { arguments, ',' };
 
     auto pos_x = tokenizer.get<int>();
     auto pos_y = tokenizer.get<int>();
