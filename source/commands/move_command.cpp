@@ -8,6 +8,9 @@ void move_command_t::apply(std::istream & input, model_t & model) const
 {
     if (!model.move())
     {
-        std::cerr << "cannot move further" << std::endl;
+        std::cerr << "cannot move further from: "
+                  << model.get_position_x() << ","
+                  << model.get_position_y() << ","
+                  << model.get_direction().to_string() << std::endl;
     }
 }

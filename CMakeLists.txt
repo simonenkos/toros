@@ -4,17 +4,23 @@ project(toros)
 set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
+    source/commands/left_command.hpp
+    source/commands/left_command.cpp
+    source/commands/move_command.hpp
+    source/commands/move_command.cpp
     source/commands/place_command.hpp
     source/commands/place_command.cpp
     source/commands/report_command.hpp
     source/commands/report_command.cpp
+    source/commands/right_command.hpp
+    source/commands/right_command.cpp
     source/utils/tokenizer.hpp
     source/utils/tokenizer.cpp
     source/command.hpp
     source/command_factory.hpp
     source/command_factory.cpp
     source/model.hpp
-    source/model.cpp source/commands/move_command.hpp source/commands/move_command.cpp)
+    source/model.cpp)
 
 set(APP
     source/main.cpp)

@@ -3,9 +3,11 @@
 
 #include <model.hpp>
 #include <command_factory.hpp>
+#include <commands/left_command.hpp>
 #include <commands/move_command.hpp>
 #include <commands/place_command.hpp>
 #include <commands/report_command.hpp>
+#include <commands/right_command.hpp>
 
 const int TABLE_SIZE = 5;
 
@@ -27,11 +29,13 @@ int main(int argc, char** argv)
 
     command_factory_t command_factory;
 
+    command_factory.register_command<left_command_t>();
     command_factory.register_command<move_command_t>();
     command_factory.register_command<place_command_t>();
     command_factory.register_command<report_command_t>();
+    command_factory.register_command<right_command_t>();
 
-    model_t robot_model(TABLE_SIZE);
+    model_t model(TABLE_SIZE);
 
     while (!input.eof())
     {
@@ -39,7 +43,7 @@ int main(int argc, char** argv)
 
         if (nullptr != cmd_ptr)
         {
-            cmd_ptr->apply(input, robot_model);
+            cmd_ptr->apply(input, model);
         }
     }
     return 0;
