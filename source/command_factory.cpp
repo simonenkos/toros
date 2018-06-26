@@ -12,7 +12,8 @@ std::shared_ptr<command_t> command_factory_t::get_command(std::istream & input) 
     {
         std::transform(command_name.begin(),
                        command_name.end(),
-                       command_name.begin(), (int (*)(int))std::tolower);
+                       command_name.begin(),
+                       [](char ch) { return std::tolower(ch); });
 
         auto it = command_registry_.find(command_name);
 
