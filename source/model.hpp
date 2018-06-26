@@ -24,6 +24,14 @@ struct model_t
                                                       y_ { y }, name_ { std::move(name) }
         { }
 
+        direction_t(direction_t const &  other) = default;
+        direction_t(direction_t       && other) = default;
+
+        direction_t & operator=(direction_t const  & other) = default;
+        direction_t & operator=(direction_t       && other) = default;
+
+        ~direction_t() = default;
+
         std::string const & to_string() const;
     };
 
@@ -40,14 +48,19 @@ private:
 public:
     explicit model_t(int size);
 
+    model_t(model_t const &  other) = delete;
+    model_t(model_t       && other) = delete;
+
+    model_t & operator=(model_t const  & other) = delete;
+    model_t & operator=(model_t       && other) = delete;
+
+    ~model_t() = default;
+
     bool place(int x, int y, direction_t const & dir);
-
     bool move();
-
     bool rotate(direction_t dir);
 
     int get_position_x() const;
-
     int get_position_y() const;
 
     direction_t const & get_direction() const;
