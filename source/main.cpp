@@ -3,6 +3,7 @@
 
 #include <model.hpp>
 #include <command_factory.hpp>
+#include <commands/move_command.hpp>
 #include <commands/place_command.hpp>
 #include <commands/report_command.hpp>
 
@@ -26,6 +27,7 @@ int main(int argc, char** argv)
 
     command_factory_t command_factory;
 
+    command_factory.register_command<move_command_t>();
     command_factory.register_command<place_command_t>();
     command_factory.register_command<report_command_t>();
 

@@ -14,7 +14,7 @@ set(SOURCES
     source/command_factory.hpp
     source/command_factory.cpp
     source/model.hpp
-    source/model.cpp)
+    source/model.cpp source/commands/move_command.hpp source/commands/move_command.cpp)
 
 set(APP
     source/main.cpp)
