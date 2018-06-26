@@ -33,6 +33,8 @@ struct model_t
         ~direction_t() = default;
 
         std::string const & to_string() const;
+
+        bool operator==(direction_t const & other) const;
     };
 
 private:

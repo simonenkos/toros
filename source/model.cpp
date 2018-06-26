@@ -22,6 +22,12 @@ std::string const & model_t::direction_t::to_string() const
     return name_;
 }
 
+bool model_t::direction_t::operator==(model_t::direction_t const & other) const
+{
+    return (x_ == other.x_) &&
+           (y_ == other.y_);
+}
+
 model_t::model_t(int size) : size_ { size }, dir_ { 0, 0, "nowhere" }
 { }
 
