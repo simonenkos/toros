@@ -60,12 +60,14 @@ public:
 
     bool place(int x, int y, direction_t const & dir);
     bool move();
-    bool rotate(direction_t dir);
+    bool rotate(direction_t const & dir);
 
     int get_position_x() const;
     int get_position_y() const;
 
     direction_t const & get_direction() const;
+
+    bool is_placed() const;
 };
 
 inline int model_t::get_position_x() const
@@ -81,6 +83,11 @@ inline int model_t::get_position_y() const
 inline model_t::direction_t const & model_t::get_direction() const
 {
     return dir_;
+}
+
+inline bool model_t::is_placed() const
+{
+    return is_placed_;
 }
 
 #endif //TOROS_MODEL_HPP

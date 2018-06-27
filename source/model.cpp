@@ -1,6 +1,7 @@
 #include <model.hpp>
 
 #include <exception>
+#include <cassert>
 
 model_t::direction_t model_t::direction_t::north = model_t::direction_t {  0,  1, "NORTH" };
 model_t::direction_t model_t::direction_t::south = model_t::direction_t {  0, -1, "SOUTH" };
@@ -29,7 +30,9 @@ bool model_t::direction_t::operator==(model_t::direction_t const & other) const
 }
 
 model_t::model_t(int size) : size_ { size }, dir_ { 0, 0, "nowhere" }
-{ }
+{
+    assert(size_ >= 1);
+}
 
 bool model_t::place(int x, int y, model_t::direction_t const & dir)
 {
@@ -54,7 +57,7 @@ bool model_t::move()
     return place(new_position_x, new_position_y, dir_);
 }
 
-bool model_t::rotate(model_t::direction_t dir)
+bool model_t::rotate(model_t::direction_t const & dir)
 {
     if (!is_placed_) return false;
 

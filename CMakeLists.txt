@@ -27,6 +27,7 @@ set(APP
 
 set(TESTS
     test/utils/tokenizer_tests.cpp
+    test/model_tests.cpp
     test/main.cpp)
 
 include_directories(source)
