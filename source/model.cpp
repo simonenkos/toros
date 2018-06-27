@@ -29,7 +29,7 @@ bool model_t::direction_t::operator==(model_t::direction_t const & other) const
            (y_ == other.y_);
 }
 
-model_t::model_t(int size) : size_ { size }, dir_ { 0, 0, "nowhere" }
+model_t::model_t(int size) : size_ { size }, dir_ { model_t::direction_t::north }
 {
     assert(size_ >= 1);
 }
